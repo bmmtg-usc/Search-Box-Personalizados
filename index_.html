@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Search Box Personalizados — Biblioteca Madre María Teresa Guevara · USC</title>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;700;800;900&family=Red+Hat+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --vino:#A41E37;--vino-dark:#7a1429;--gold:#F2BB4A;--gold-dk:#d4a030;
+  --gris:#626366;--bg:#F7F6F4;--border:#E2E0DD;--ink:#1A1A1A;--ink3:#888888;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);font-family:'Red Hat Display',sans-serif;min-height:100vh;display:flex;flex-direction:column;}
+header{background:var(--vino);position:relative;overflow:hidden;border-bottom:4px solid var(--gold);}
+header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 40px,rgba(255,255,255,0.03) 40px,rgba(255,255,255,0.03) 41px);}
+.header-inner{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.logo-pill{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:10px;padding:6px 10px;flex-shrink:0;}
+.logo-pill img{height:58px;width:auto;display:block;}
+.header-text h1{font-size:22px;font-weight:800;color:#fff;line-height:1.2;}
+.header-text p{font-family:'Red Hat Mono',monospace;font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:1px;text-transform:uppercase;margin-top:4px;}
+main{flex:1;max-width:960px;margin:0 auto;width:100%;padding:48px 24px;}
+.intro{text-align:center;margin-bottom:40px;}
+.intro h2{font-size:30px;font-weight:900;color:var(--ink);margin-bottom:10px;}
+.intro p{font-family:'Red Hat Mono',monospace;font-size:15px;color:var(--ink3);line-height:1.7;}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:40px;}
+.dash-card{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(26,26,26,0.08);border:1px solid var(--border);text-decoration:none;display:flex;flex-direction:column;transition:transform 0.15s,box-shadow 0.15s;}
+.dash-card:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(164,30,55,0.15);}
+.card-top{background:var(--vino);padding:28px 28px 22px;position:relative;overflow:hidden;}
+.card-top::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent,transparent 30px,rgba(255,255,255,0.04) 30px,rgba(255,255,255,0.04) 31px);}
+.card-top::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--gold);}
+.card-icon{position:relative;z-index:1;font-size:36px;margin-bottom:12px;display:block;}
+.card-top h3{position:relative;z-index:1;font-size:22px;font-weight:800;color:#fff;line-height:1.2;}
+.card-unit{position:relative;z-index:1;font-family:'Red Hat Mono',monospace;font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px;}
+.card-body{padding:24px 28px;flex:1;display:flex;flex-direction:column;gap:16px;}
+.card-desc{font-family:'Red Hat Mono',monospace;font-size:14px;color:var(--gris);line-height:1.8;flex:1;}
+.card-years{display:flex;gap:8px;flex-wrap:wrap;}
+.year-tag{font-family:'Red Hat Display',sans-serif;font-size:13px;background:rgba(164,30,55,0.08);border:1px solid rgba(164,30,55,0.2);color:var(--vino);padding:6px 16px;border-radius:20px;font-weight:600;letter-spacing:0.3px;}
+.card-btn{display:inline-flex;align-items:center;gap:8px;background:var(--vino);color:#fff;padding:11px 22px;border-radius:8px;font-family:'Red Hat Mono',monospace;font-size:14px;font-weight:500;transition:background 0.15s;align-self:flex-start;}
+.card-btn:hover{background:var(--vino-dark);}
+.arrow{transition:transform 0.15s;}
+.dash-card:hover .arrow{transform:translateX(4px);}
+.divider{height:2px;background:linear-gradient(90deg,var(--gold) 0%,transparent 60%);border-radius:1px;margin:40px 0;}
+.info-strip{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;}
+.info-pill{background:#fff;border:1px solid var(--border);border-radius:8px;padding:10px 18px;font-family:'Red Hat Mono',monospace;font-size:14px;color:var(--gris);display:flex;align-items:center;gap:8px;}
+footer{background:var(--vino-dark);border-top:3px solid var(--gold);padding:14px 24px;display:flex;align-items:center;justify-content:center;font-family:'Red Hat Mono',monospace;font-size:17px;color:rgba(255,255,255,0.45);}
+@media(max-width:640px){.cards{grid-template-columns:1fr;}.header-inner{padding:16px;}}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="logo-pill"><img src="https://biblioteca.sagrado.edu/sites/default/files/2026-09/logo_biblioteca.png" alt="Biblioteca Madre María Teresa Guevara"></div>
+    <div class="header-text">
+      <h1>Biblioteca Madre María Teresa Guevara</h1>
+      <p>Universidad del Sagrado Corazón · Search Box Personalizados</p>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="intro">
+    <h2>Search Box Personalizados</h2>
+    <p>Buscadores listos para integrar en Canvas y en el sitio · Selecciona una base de datos</p>
+  </div>
+
+  <div class="cards">
+
+    <a class="dash-card" href="bsu-search-box.html">
+      <div class="card-top">
+        <span class="card-icon">💼</span>
+        <h3>Business Source Ultimate</h3>
+        <div class="card-unit">EBSCO · Negocios</div>
+      </div>
+      <div class="card-body">
+        <div class="card-desc">
+          Artículos, revistas académicas y reportes de la industria en administración de empresas, mercadeo y economía.
+        </div>
+        <div class="card-years"><span class="year-tag">EBSCO</span></div>
+        <div class="card-btn">Ver buscador <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="dash-card" href="cmm-search-box.html">
+      <div class="card-top">
+        <span class="card-icon">🎬</span>
+        <h3>Communication &amp; Mass Media Complete</h3>
+        <div class="card-unit">EBSCO · Comunicación</div>
+      </div>
+      <div class="card-body">
+        <div class="card-desc">
+          Investigación en comunicación, medios de comunicación masiva, periodismo, relaciones públicas y cine.
+        </div>
+        <div class="card-years"><span class="year-tag">EBSCO</span></div>
+        <div class="card-btn">Ver buscador <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="dash-card" href="ent-search-box.html">
+      <div class="card-top">
+        <span class="card-icon">🚀</span>
+        <h3>Entrepreneurial Studies Source</h3>
+        <div class="card-unit">EBSCO · Emprendimiento</div>
+      </div>
+      <div class="card-body">
+        <div class="card-desc">
+          Recursos sobre emprendimiento, planificación de negocios, capital de riesgo e innovación empresarial.
+        </div>
+        <div class="card-years"><span class="year-tag">EBSCO</span></div>
+        <div class="card-btn">Ver buscador <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="dash-card" href="eds-search-box.html">
+      <div class="card-top">
+        <span class="card-icon">🔎</span>
+        <h3>EBSCO Discovery Service</h3>
+        <div class="card-unit">EBSCO · Búsqueda general</div>
+      </div>
+      <div class="card-body">
+        <div class="card-desc">
+          Búsqueda simultánea en todas las bases de datos suscritas por la biblioteca desde un solo lugar.
+        </div>
+        <div class="card-years"><span class="year-tag">EBSCO</span></div>
+        <div class="card-btn">Ver buscador <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+    <a class="dash-card" href="statista-search-box.html">
+      <div class="card-top">
+        <span class="card-icon">📊</span>
+        <h3>Statista</h3>
+        <div class="card-unit">Estadísticas de mercado</div>
+      </div>
+      <div class="card-body">
+        <div class="card-desc">
+          Estadísticas, pronósticos y reportes de mercado a nivel mundial, con autenticación institucional (OpenAthens).
+        </div>
+        <div class="card-years"><span class="year-tag">Statista</span></div>
+        <div class="card-btn">Ver buscador <span class="arrow">→</span></div>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="info-strip">
+    <div class="info-pill">🔗 Listos para insertar con &lt;iframe&gt;</div>
+    <div class="info-pill">🏛️ Biblioteca Sagrado</div>
+  </div>
+</main>
+
+<footer>Biblioteca Madre María Teresa Guevara · Universidad del Sagrado Corazón</footer>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Statista - Biblioteca Sagrado</title>
+</head>
+<body style="margin:0;">
+<div style="max-width:640px;margin:0 auto;">
+  <p style="font-family:Arial,sans-serif;font-size:14px;padding:16px 16px 0;">
+    <a href="index.html" style="color:#A41E37;text-decoration:none;font-weight:600;">&larr; Buscadores</a>
+  </p>
+<div class="biblioteca-search-box">
+  <div class="biblioteca-search-box__logo">
+    <img
+      class="biblioteca-search-box__logo__image"
+      src="https://biblioteca.sagrado.edu/sites/default/files/2026-09/logo_biblioteca.png"
+      alt="Biblioteca de la Universidad del Sagrado Corazón"
+    />
+  </div>
+  <form
+    action="https://go.openathens.net/redirector/sagrado.edu"
+    method="GET"
+    target="_blank"
+    onsubmit="return statistaSearchSubmit(this)"
+  >
+    <span id="statista-search-new-window-description" class="biblioteca-search-box__sr-only">
+      Results open in a new tab/window.
+    </span>
+    <div class="biblioteca-search-box__header">Statista</div>
+    <input type="hidden" name="url" id="statista-url-field" />
+    <div class="biblioteca-search-box__search">
+      <input
+        class="biblioteca-search-box__search__input"
+        type="search"
+        id="statista-search-input"
+        placeholder="Search statistics, reports &amp; more"
+        aria-label="Search statistics, reports &amp; more"
+        aria-describedby="statista-search-new-window-description"
+      />
+      <button
+        class="biblioteca-search-box__search__button"
+        type="submit"
+        title="Search"
+        aria-label="Search (results open in a new tab/window)"
+      >
+        <svg viewBox="0 0 512 512" aria-hidden="true" focusable="false">
+          <path
+            fill="currentColor"
+            d="M508.5 468.9L387.1 347.5c-2.3-2.3-5.3-3.5-8.5-3.5h-13.2c31.5-36.5 50.6-84 50.6-136C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c52 0 99.5-19.1 136-50.6v13.2c0 3.2 1.3 6.2 3.5 8.5l121.4 121.4c4.7 4.7 12.3 4.7 17 0l22.6-22.6c4.7-4.7 4.7-12.3 0-17zM208 368c-88.4 0-160-71.6-160-160S119.6 48 208 48s160 71.6 160 160-71.6 160-160 160z"
+          ></path>
+        </svg>
+      </button>
+    </div>
+  </form>
+</div>
+<script>
+  function statistaSearchSubmit(form) {
+    var input = document.getElementById("statista-search-input");
+    var q = input.value.trim();
+    var target = q
+      ? "https://www.statista.com/serp?q=" + encodeURIComponent(q)
+      : "https://www.statista.com/";
+    document.getElementById("statista-url-field").value = target;
+    return true;
+  }
+</script>
+<style>
+.biblioteca-search-box {
+  padding: 2rem;
+}
+.biblioteca-search-box * {
+  transition: all 0.3s ease-in-out 0ms;
+}
+.biblioteca-search-box__search:has(:focus-within) {
+  border-color: #3e75cf;
+  box-shadow:
+    0 0 0 1px #3e75cf,
+    0 0 0 4px #d8e3f5;
+}
+.biblioteca-search-box__search {
+  color: #3d3f42;
+  border: 1px solid #8d9095;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+}
+.biblioteca-search-box__search__input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  padding-block: 0.75rem;
+  padding-inline-start: 1rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #3d3f42;
+  font-family: "Noto Sans", Arial, sans-serif;
+}
+.biblioteca-search-box__search__input::placeholder {
+  color: #55585d;
+}
+.biblioteca-search-box__search__button {
+  border: none;
+  background-color: transparent;
+  outline-offset: -8px;
+  padding-inline: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #2d62b7;
+}
+.biblioteca-search-box__search__button:hover {
+  color: #255096;
+}
+.biblioteca-search-box__search__button > svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.biblioteca-search-box__logo {
+  display: block;
+  padding: 1rem;
+}
+.biblioteca-search-box__logo__image {
+  width: auto;
+  max-width: 100%;
+  height: 180px;
+  object-fit: contain;
+  margin: 0 auto;
+  display: block;
+}
+.biblioteca-search-box__header {
+  margin-block-end: 0.67rem;
+  font-family: "Noto Serif", Georgia, serif;
+  font-weight: 700;
+  color: #161718;
+  font-size: 1rem;
+}
+.biblioteca-search-box__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+</style>
+
+</div>
+</body>
+</html>
